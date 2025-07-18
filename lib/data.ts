@@ -232,7 +232,7 @@ export const products: Product[] = [
     ],
     averageRating: 5.0,
     colors: ["#2D2D2D", "#8B7355", "#F5F0EB"],
-    sizes: ["One Size"],
+    sizes: ["S", "M", "L", "XL"],
     description: "Complete your look with our stylish Embroidered Baseball Cap. Featuring delicate embroidery and an adjustable strap, it offers both comfort and a touch of elegance.",
     images: [
       "/placeholder.svg?height=800&width=600&text=Cap+Front",
