@@ -19,7 +19,7 @@ const categories = [
   "Shirts",
   "Co-ords",
   "Hoodies",
-  "Bottoms", // Moved here
+  "Bottoms",
   "Vests",
   "Caps",
   "Jackets",
