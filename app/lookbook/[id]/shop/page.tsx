@@ -89,7 +89,7 @@ export default function ShopLookPage() {
   // Aggregate all unique sizes from products in this look
   const allLookSizes = Array.from(new Set(lookProducts.flatMap((product) => product.sizes))).sort((a, b) => {
     // Custom sort for common sizes (XS, S, M, L, XL)
-    const sizeOrder = ["XS", "S", "M", "L", "XL", "One Size"]
+    const sizeOrder = ["XS", "S", "M", "L", "XL"]
     const indexA = sizeOrder.indexOf(a)
     const indexB = sizeOrder.indexOf(b)
 
