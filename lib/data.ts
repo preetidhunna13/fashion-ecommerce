@@ -10,6 +10,9 @@ export interface Review {
 }
 
 export interface Product extends Omit<CartItem, "quantity"> {
+  isNew: any
+  colors: any
+  rating: number // This will be replaced by averageRatin
   averageRating: number // New field for calculated average
   reviews: Review[] // Array of review objects
   sizes: string[]
@@ -35,7 +38,7 @@ export const products: Product[] = [
     price: "₹15,999",
     image: "/placeholder.svg?height=500&width=400",
     category: "Accessories",
-    rating: 4.7, // This will be replaced by averageRating
+    rating: 4.5, // This will be replaced by averageRating
     reviews: [
       {
         id: "rev301",
@@ -57,13 +60,13 @@ export const products: Product[] = [
     averageRating: 4.5, // Manually calculated for mock data
     colors: ["#8B7355", "#A0826E"],
     sizes: ["M"],
-    description:
-      "Handcrafted by skilled artisans, this exquisite handbag is a testament to traditional craftsmanship. Featuring intricate detailing and made from ethically sourced leather, it's a statement piece that complements any outfit.",
+    description: "Handcrafted by skilled artisans, this exquisite handbag is a testament to traditional craftsmanship. Featuring intricate detailing and made from ethically sourced leather, it's a statement piece that complements any outfit.",
     images: [
       "/placeholder.svg?height=800&width=600&text=Handbag+Front",
       "/placeholder.svg?height=800&width=600&text=Handbag+Open",
       "/placeholder.svg?height=800&width=600&text=Handbag+Detail",
     ],
+    isNew: undefined
   },
   {
     id: 6,
@@ -93,12 +96,12 @@ export const products: Product[] = [
     averageRating: 4.5, // Manually calculated for mock data
     colors: ["#8B7355", "#CD9B7A", "#F5F0EB"],
     sizes: ["S", "M", "L", "XL"],
-    description:
-      "Flowy and elegant, our Linen Palazzo pants are perfect for warm weather. Made from 100% pure linen, they offer exceptional breathability and a relaxed fit, ideal for both casual and semi-formal occasions.",
+    description: "Flowy and elegant, our Linen Palazzo pants are perfect for warm weather. Made from 100% pure linen, they offer exceptional breathability and a relaxed fit, ideal for both casual and semi-formal occasions.",
     images: [
       "/placeholder.svg?height=800&width=600&text=Palazzo+Front",
       "/placeholder.svg?height=800&width=600&text=Palazzo+Flow",
     ],
+    isNew: undefined
   },
   // New Products
   {
@@ -112,12 +115,12 @@ export const products: Product[] = [
     isNew: true,
     colors: ["#FFFFFF", "#2D2D2D", "#8B7355"],
     sizes: ["XS", "S", "M", "L", "XL"],
-    description:
-      "A timeless essential, our Classic Crewneck T-Shirt is crafted from premium organic cotton for ultimate comfort and durability. Perfect for layering or wearing on its own.",
+    description: "A timeless essential, our Classic Crewneck T-Shirt is crafted from premium organic cotton for ultimate comfort and durability. Perfect for layering or wearing on its own.",
     images: [
       "/placeholder.svg?height=800&width=600&text=T-Shirt+Front",
       "/placeholder.svg?height=800&width=600&text=T-Shirt+Detail",
     ],
+    rating: 0
   },
   {
     id: 8,
@@ -138,12 +141,13 @@ export const products: Product[] = [
     averageRating: 5.0,
     colors: ["#F5F0EB", "#A0826E", "#1A4D2E"],
     sizes: ["S", "M", "L", "XL"],
-    description:
-      "Our Tailored Linen Shirt offers a relaxed yet refined look. Made from breathable linen, it's ideal for warmer climates and can be dressed up or down.",
+    description: "Our Tailored Linen Shirt offers a relaxed yet refined look. Made from breathable linen, it's ideal for warmer climates and can be dressed up or down.",
     images: [
       "/placeholder.svg?height=800&width=600&text=Shirt+Front",
       "/placeholder.svg?height=800&width=600&text=Shirt+Cuff",
     ],
+    isNew: undefined,
+    rating: 0
   },
   {
     id: 9,
@@ -157,14 +161,13 @@ export const products: Product[] = [
     isNew: true,
     colors: ["#CD9B7A", "#8B7355", "#2D2D2D"],
     sizes: ["S", "M", "L"],
-    description:
-      "Effortless style with our Comfort Co-ord Set. This matching top and bottom set is designed for ultimate comfort and a chic, coordinated look. Perfect for lounging or a relaxed outing.",
+    description: "Effortless style with our Comfort Co-ord Set. This matching top and bottom set is designed for ultimate comfort and a chic, coordinated look. Perfect for lounging or a relaxed outing.",
     images: [
       "/placeholder.svg?height=800&width=600&text=Co-ord+Set+Full",
       "/placeholder.svg?height=800&width=600&text=Co-ord+Set+Detail",
     ],
-    video:
-      "https://assets.mixkit.co/videos/preview/mixkit-woman-posing-in-a-studio-con-un-fondo-blanco-34435-large.mp4",
+    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-posing-in-a-studio-con-un-fondo-blanco-34435-large.mp4",
+    rating: 0
   },
   {
     id: 10,
@@ -185,12 +188,13 @@ export const products: Product[] = [
     averageRating: 4.0,
     colors: ["#2D2D2D", "#A0826E", "#F5F0EB"],
     sizes: ["S", "M", "L", "XL"],
-    description:
-      "Indulge in comfort with our Luxury Knit Hoodie. Made from a premium blend of cashmere and organic cotton, it offers unparalleled softness and warmth for cooler days.",
+    description: "Indulge in comfort with our Luxury Knit Hoodie. Made from a premium blend of cashmere and organic cotton, it offers unparalleled softness and warmth for cooler days.",
     images: [
       "/placeholder.svg?height=800&width=600&text=Hoodie+Front",
       "/placeholder.svg?height=800&width=600&text=Hoodie+Texture",
     ],
+    isNew: undefined,
+    rating: 0
   },
   {
     id: 11,
@@ -202,12 +206,13 @@ export const products: Product[] = [
     averageRating: 0,
     colors: ["#8B7355", "#2D2D2D"],
     sizes: ["S", "M", "L"],
-    description:
-      "Stay warm and stylish with our Quilted Puffer Vest. Lightweight yet insulating, it's perfect for layering during transitional weather.",
+    description: "Stay warm and stylish with our Quilted Puffer Vest. Lightweight yet insulating, it's perfect for layering during transitional weather.",
     images: [
       "/placeholder.svg?height=800&width=600&text=Vest+Front",
       "/placeholder.svg?height=800&width=600&text=Vest+Detail",
     ],
+    isNew: undefined,
+    rating: 0
   },
   {
     id: 12,
@@ -228,12 +233,13 @@ export const products: Product[] = [
     averageRating: 5.0,
     colors: ["#2D2D2D", "#8B7355", "#F5F0EB"],
     sizes: ["One Size"],
-    description:
-      "Complete your look with our stylish Embroidered Baseball Cap. Featuring delicate embroidery and an adjustable strap, it offers both comfort and a touch of elegance.",
+    description: "Complete your look with our stylish Embroidered Baseball Cap. Featuring delicate embroidery and an adjustable strap, it offers both comfort and a touch of elegance.",
     images: [
       "/placeholder.svg?height=800&width=600&text=Cap+Front",
       "/placeholder.svg?height=800&width=600&text=Cap+Side",
     ],
+    isNew: undefined,
+    rating: 0
   },
   {
     id: 13,
@@ -246,14 +252,13 @@ export const products: Product[] = [
     isNew: true,
     colors: ["#4A6C8C", "#2D2D2D"],
     sizes: ["S", "M", "L", "XL"],
-    description:
-      "A classic reimagined, our Oversized Denim Jacket offers a relaxed fit and timeless appeal. Made from durable, sustainably sourced denim, it's a versatile layering piece for any season.",
+    description: "A classic reimagined, our Oversized Denim Jacket offers a relaxed fit and timeless appeal. Made from durable, sustainably sourced denim, it's a versatile layering piece for any season.",
     images: [
       "/placeholder.svg?height=800&width=600&text=Jacket+Front",
       "/placeholder.svg?height=800&width=600&text=Jacket+Back",
     ],
-    video:
-      "https://assets.mixkit.co/videos/preview/mixkit-woman-posing-in-a-studio-con-un-fondo-blanco-34435-large.mp4",
+    video: "https://assets.mixkit.co/videos/preview/mixkit-woman-posing-in-a-studio-con-un-fondo-blanco-34435-large.mp4",
+    rating: 0
   },
 ]
 

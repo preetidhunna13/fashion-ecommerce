@@ -274,7 +274,7 @@ export default function ProductsPage() {
 
                       {/* Color Options */}
                       <div className="flex items-center gap-2 mb-4">
-                        {product.colors.map((color, colorIndex) => (
+                        {product.colors.map((color: any, colorIndex: React.Key | null | undefined) => (
                           <motion.button
                             key={colorIndex}
                             className={`w-6 h-6 rounded-full border-2 border-gray-300 hover:border-primary`}
