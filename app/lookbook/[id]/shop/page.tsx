@@ -167,7 +167,7 @@ export default function ShopLookPage() {
                 {allLookSizes.length > 0 && (
                   <div className="flex items-center gap-2 text-muted-foreground text-sm">
                     <span className="font-semibold">Available Sizes:</span>
-                    <p className="text-base font-medium">{allLookSizes.join(", ")}</p>
+                    <p className="text-base font-medium">XS, S, M, L, XL</p>
                   </div>
                 )}
 
